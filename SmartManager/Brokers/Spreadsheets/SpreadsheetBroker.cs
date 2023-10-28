@@ -1,6 +1,6 @@
 ﻿//===========================
 // Copyright (c) Tarteeb LLC
-// Powering True Leadership
+// Managre quickly and easy
 //===========================
 
 using System;

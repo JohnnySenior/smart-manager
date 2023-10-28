@@ -1,3 +1,8 @@
+//===========================
+// Copyright (c) Tarteeb LLC
+// Managre quickly and easy
+//===========================
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
