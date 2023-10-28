@@ -5,10 +5,14 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Brokers\Loggings\" />
-    <Folder Include="Brokers\Storages\" />
-    <Folder Include="Models\Applicants\" />
-    <Folder Include="Models\Groups\" />
+    <Compile Remove="Brokers\Loggings\**" />
+    <Compile Remove="Models\Groups\**" />
+    <Content Remove="Brokers\Loggings\**" />
+    <Content Remove="Models\Groups\**" />
+    <EmbeddedResource Remove="Brokers\Loggings\**" />
+    <EmbeddedResource Remove="Models\Groups\**" />
+    <None Remove="Brokers\Loggings\**" />
+    <None Remove="Models\Groups\**" />
   </ItemGroup>
 
   <ItemGroup>
