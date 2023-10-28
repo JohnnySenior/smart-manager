@@ -5,13 +5,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Models\Groups\**" />
-    <Content Remove="Models\Groups\**" />
-    <EmbeddedResource Remove="Models\Groups\**" />
-    <None Remove="Models\Groups\**" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="Bytescout.Spreadsheet" Version="4.7.1.2054" />
     <PackageReference Include="EFxceptions" Version="0.4.5" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.13" />

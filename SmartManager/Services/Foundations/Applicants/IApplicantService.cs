@@ -16,6 +16,6 @@ namespace SmartManager.Services.Foundations.Applicants
         ValueTask<Applicant> RetrieveApplicantByIdAsync(Guid applicantid);
         IQueryable RetrieveAllApplicants();
         ValueTask<Applicant> ModifyApplicantAsync(Applicant applicant);
-        ValueTask<Applicant> RemoveApplicantAsync(Guid applicantid;
+        ValueTask<Applicant> RemoveApplicantAsync(Guid applicantid);
     }
 }
