@@ -4,12 +4,31 @@
 //===========================
 
 using Microsoft.EntityFrameworkCore;
+using SmartManager.Models.Applicants;
 using SmartManager.Models.Groups;
+using System.Linq;
+using System.Threading.Tasks;
+using System;
 
 namespace SmartManager.Brokers.Storages
 {
     public partial class StorageBroker
     {
         public DbSet<Group> Groups { get; set; }
+
+        public async ValueTask<Group> InsertGroupAsync(Group group) =>
+           await InsertAsync(group);
+
+        public IQueryable<Group> SelectAllGroups() =>
+            SelectAll<Group>().AsQueryable();
+
+        public async ValueTask<Group> SelectGroupByIdAsync(Guid groupId) =>
+            await SelectAsync<Group>(groupId);
+
+        public async ValueTask<Group> UpdateAppolicantAsync(Group group) =>
+            await UpdateAsync(group);
+
+        public async ValueTask<Group> DeleteGroupAsync(Group group) =>
+            await DeleteAsync(group);
     }
 }
