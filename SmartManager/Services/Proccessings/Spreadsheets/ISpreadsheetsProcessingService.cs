@@ -7,7 +7,7 @@ using SmartManager.Models.ExternalApplicants;
 using System.Collections.Generic;
 using System.IO;
 
-namespace SmartManager.Services.Proccessings
+namespace SmartManager.Services.Proccessings.Spreadsheets
 {
     public interface ISpreadsheetsProcessingService
     {

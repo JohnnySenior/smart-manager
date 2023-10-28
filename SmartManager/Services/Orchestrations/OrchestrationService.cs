@@ -7,7 +7,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
 using SmartManager.Models.ExternalApplicants;
-using SmartManager.Services.Proccessings;
+using SmartManager.Services.Proccessings.Spreadsheets;
 
 namespace SmartManager.Services.Orchestrations
 {
