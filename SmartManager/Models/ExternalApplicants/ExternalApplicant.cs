@@ -14,7 +14,7 @@ namespace SmartManager.Models.ExternalApplicants
         public string LastName { get; set; }
         public string Email { get; set; }
         public string PhoneNumber { get; set; }
-        public DateTimeOffset BirthDate { get; set; }
+        public DateTimeOffset CreatedDate { get; set; }
         public string GroupName { get; set; }
     }
 }
