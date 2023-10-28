@@ -31,14 +31,8 @@ namespace SmartManager.Brokers.Spreadsheets
                 externalApplicant.LastName = worksheet.Cell(row, 2).ToString();
                 externalApplicant.PhoneNumber = worksheet.Cell(row, 3).ToString();
                 externalApplicant.Email = worksheet.Cell(row, 4).ToString();
-
-                string dateString = worksheet.Cell(row, 5).ToString();
-                if (DateTimeOffset.TryParse(dateString, out DateTimeOffset date))
-                {
-                    externalApplicant.BirthDate = date;
-                }
-
                 externalApplicant.GroupName = worksheet.Cell(row, 6).ToString();
+                externalApplicant.CreatedDate = DateTimeOffset.Now;
 
                 importApplicants.Add(externalApplicant);
             }
