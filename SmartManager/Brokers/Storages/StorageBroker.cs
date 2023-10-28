@@ -2,6 +2,7 @@
 // Copyright (c) Tarteeb LLC
 // Managre quickly and easy
 //===========================
+
 using EFxceptions;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
