@@ -4,18 +4,19 @@
 //===========================
 
 using SmartManager.Models.Applicants;
-using System.Linq;
-using System.Threading.Tasks;
-using System;
 using SmartManager.Models.Groups;
+using System.Linq;
+using System;
+using System.Threading.Tasks;
 
-namespace SmartManager.Services.Foundations.Groups
+namespace SmartManager.Services.Proccessings.Groups
 {
-    public interface IGroupService
+    public interface IGroupProcessingService
     {
+        ValueTask<Group> EnsureGroupExistsByName(string groupName);
         ValueTask<Group> AddGroupAsync(Group group);
         ValueTask<Group> RetrieveGroupByIdAsync(Guid groupid);
-        IQueryable<Group> RetrieveAllGroups();
+        IQueryable RetrieveAllGroups();
         ValueTask<Group> ModifyGroupAsync(Group group);
         ValueTask<Group> RemoveGroupAsync(Guid groupid);
     }
