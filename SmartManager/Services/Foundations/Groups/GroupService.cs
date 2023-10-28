@@ -26,7 +26,7 @@ namespace SmartManager.Services.Foundations.Groups
         public async ValueTask<Group> RetrieveGroupByIdAsync(Guid groupid) =>
             await this.storageBroker.SelectGroupByIdAsync(groupid);
 
-        public IQueryable RetrieveAllGroups() =>
+        public IQueryable<Group> RetrieveAllGroups() =>
             this.storageBroker.SelectAllGroups();
 
         public async ValueTask<Group> ModifyGroupAsync(Group group) =>
