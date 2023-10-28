@@ -9,7 +9,6 @@
     <Folder Include="Brokers\Storages\" />
     <Folder Include="Models\Applicants\" />
     <Folder Include="Models\Groups\" />
-    <Folder Include="Services\Foundations\" />
     <Folder Include="Services\Orchestrations\" />
     <Folder Include="Services\Proccessings\" />
   </ItemGroup>
