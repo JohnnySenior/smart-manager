@@ -8,7 +8,7 @@ using System.IO;
 using SmartManager.Models.ExternalApplicants;
 using SmartManager.Services.Foundations.Spreadsheets;
 
-namespace SmartManager.Services.Proccessings
+namespace SmartManager.Services.Proccessings.Spreadsheets
 {
     public class SpreadsheetsProcessingService : ISpreadsheetsProcessingService
     {
@@ -22,7 +22,7 @@ namespace SmartManager.Services.Proccessings
         public List<ExternalApplicant> ReadExternalApplicants(MemoryStream stream)
         {
             List<ExternalApplicant> validExternalApplicants =
-                this.spreadsheetService.GetExternalApplicants(stream);
+                spreadsheetService.GetExternalApplicants(stream);
 
             return validExternalApplicants;
         }

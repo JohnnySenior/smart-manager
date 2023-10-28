@@ -34,9 +34,9 @@ namespace SmartManager.Services.Foundations.Applicants
         public async ValueTask<Applicant> ModifyApplicantAsync(Applicant applicant) =>
             await this.storageBroker.UpdateAppolicantAsync(applicant);
 
-        public async ValueTask<Applicant> RemoveApplicantAsync(Guid guid)
+        public async ValueTask<Applicant> RemoveApplicantAsync(Guid applicantid)
         {
-            Applicant applicant = await this.storageBroker.SelectApplicantByIdAsync(guid);
+            Applicant applicant = await this.storageBroker.SelectApplicantByIdAsync(applicantid);
 
             return await this.storageBroker.DeleteApplicantAsync(applicant);
         }
