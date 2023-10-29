@@ -14,7 +14,7 @@ namespace SmartManager.Services.Proccessings.Applicants
     {
         ValueTask<Applicant> AddApplicantAsync(Applicant applicant);
         ValueTask<Applicant> RetrieveApplicantByIdAsync(Guid applicantid);
-        IQueryable RetrieveAllApplicants();
+        IQueryable<Applicant> RetrieveAllApplicants();
         ValueTask<Applicant> ModifyApplicantAsync(Applicant applicant);
         ValueTask<Applicant> RemoveApplicantAsync(Guid applicantid);
     }
