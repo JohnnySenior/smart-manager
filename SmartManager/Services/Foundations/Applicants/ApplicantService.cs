@@ -28,7 +28,7 @@ namespace SmartManager.Services.Foundations.Applicants
         public async ValueTask<Applicant> RetrieveApplicantByIdAsync(Guid applicantid) =>
             await this.storageBroker.SelectApplicantByIdAsync(applicantid);
 
-        public IQueryable RetrieveAllApplicants() =>
+        public IQueryable<Applicant> RetrieveAllApplicants() =>
             this.storageBroker.SelectAllApplicants();
 
         public async ValueTask<Applicant> ModifyApplicantAsync(Applicant applicant) =>

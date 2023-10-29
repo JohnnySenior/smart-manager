@@ -1,0 +1,84 @@
+﻿@using SmartManager.Models.Applicants;
+@model IQueryable<Applicant>
+
+@{
+    ViewData["Title"] = "ShowApplicants";
+}
+
+<div class="container p-3">
+    <div class="row pt-4">
+        <div class="col-6">
+            <h2 class="text-primary">Applicant List</h2>
+        </div>
+        <div class="col-6 text-end">
+            <a asp-controller="Applicant" asp-action="PostApplicant" class="btn btn-primary">
+                <i class="bi bi-plus-circle"></i> &nbsp; Add New Applicant
+            </a>
+        </div>
+    </div>
+    <br />
+
+    <!-- Search Input Field -->
+    <div class="row pt-3">
+        <div class="col-3">
+            <input type="text" id="searchInput" class="form-control" placeholder="Search">
+        </div>
+    </div>
+    <br />
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">FirstName</th>
+                <th scope="col">LastName</th>
+                <th scope="col">Email</th>
+                <th scope="col">PhoneNumber</th>
+                <th scope="col">GroupName</th>
+                <th scope="col">CreatedDate</th>
+                <th scope="col">Edit</th>
+                <th scope="col">Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            @{
+                int i = 1;
+                foreach (var item in Model)
+                {
+                    <tr class="searchable-row">
+                        <th scope="row">@i</th>
+                        <td>@item.FirstName</td>
+                        <td>@item.LastName</td>
+                        <td>@item.Email</td>
+                        <td>@item.PhoneNumber</td>
+                        <td>@item.GroupName</td>
+                        <td>@item.CreatedDate</td>
+                        <td>
+                            <a asp-route-id="@item.ApplicantId" asp-action="EditStudent" class="btn btn-primary small-button">
+                                <i class="bi bi-pen"></i>
+                            </a>
+                        </td>
+                        <td>
+                            <a asp-route-id="@item.ApplicantId" asp-action="DeleteStudent" class="btn btn-danger small-button" onclick="return DeleteInput()">
+                                <i class="bi bi-trash3-fill"></i>
+                            </a>
+                        </td>
+                    </tr>
+                    i++;
+                }
+            }
+        </tbody>
+    </table>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $("#searchInput").on("keyup", function () {
+            var value = $(this).val().toLowerCase();
+            $(".searchable-row").filter(function () {
+                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1);
+            });
+        });
+    });
+</script>
