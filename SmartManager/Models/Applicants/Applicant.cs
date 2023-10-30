@@ -3,6 +3,7 @@
 // Managre quickly and easy
 //===========================
 using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace SmartManager.Models.Applicants
 {

@@ -79,6 +79,11 @@ namespace SmartManager
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
+
+                endpoints.MapControllerRoute(
+                     name: "default",
+                    pattern: "PutApplicant/{applicantId}",
+                    defaults: new { controller = "Applicant", action = "PutApplicant" });
             });
         }
     }

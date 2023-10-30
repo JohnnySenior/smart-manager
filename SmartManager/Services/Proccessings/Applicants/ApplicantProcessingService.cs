@@ -25,6 +25,7 @@ namespace SmartManager.Services.Proccessings.Applicants
         public async ValueTask<Applicant> AddApplicantAsync(Applicant applicant)
         {
             applicant.ApplicantId = Guid.NewGuid();
+            applicant.CreatedDate = DateTime.Now;
 
             var newGroup = await this.groupProcessingService.EnsureGroupExistsByName(applicant.GroupName);
 
@@ -39,7 +40,16 @@ namespace SmartManager.Services.Proccessings.Applicants
         public IQueryable<Applicant> RetrieveAllApplicants() =>
             this.applicantService.RetrieveAllApplicants();
 
-        public async ValueTask<Applicant> ModifyApplicantAsync(Applicant applicant) =>
+        public async ValueTask<Applicant> ModifyApplicantAsync(Applicant applicant)
+        {
+            var newGroup = await this.groupProcessingService.EnsureGroupExistsByName(applicant.GroupName);
+
+            applicant.GroupId = newGroup.GroupId;
+
+            return await this.applicantService.ModifyApplicantAsync(applicant);
+        }
+
+        public async ValueTask<Applicant> ModifyApplicantWithGroupAsync(Applicant applicant) =>
             await this.applicantService.ModifyApplicantAsync(applicant);
 
         public async ValueTask<Applicant> RemoveApplicantAsync(Guid applicantid) =>
