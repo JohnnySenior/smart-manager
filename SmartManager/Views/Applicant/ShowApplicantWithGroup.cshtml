@@ -10,7 +10,12 @@
     @{
         ViewData["Title"] = "ShowApplicants";
     }
-
+    <style>
+        .btn-md-custom {
+            padding: 0.3rem 0.75rem; /* Adjust the padding to control button size */
+            font-size: 1rem; /* Adjust the font size for button text */
+        }
+    </style>
     <div class="container p-3">
         <div class="row pt-4">
             <div class="col-6">
@@ -59,12 +64,12 @@
                             <td>@item.GroupName</td>
                             <td>@item.CreatedDate</td>
                             <td>
-                                <a asp-route-applicantId="@item.ApplicantId" asp-action="PutApplicant" class="btn btn-primary btn-sm">
+                                <a asp-route-applicantId="@item.ApplicantId" asp-action="PutApplicant" class="btn btn-primary btn-md-custom">
                                     <i class="bi bi-pen"></i>
                                 </a>
                             </td>
                             <td>
-                                <a asp-route-applicantId="@item.ApplicantId" asp-action="DeleteApplicant" class="btn btn-danger btn-sm" onclick="return DeleteInput()">
+                                <a asp-route-applicantId="@item.ApplicantId" asp-action="DeleteApplicant" class="btn btn-danger btn-md-custom" onclick="return DeleteInput()">
                                     <i class="bi bi-trash3-fill"></i>
                                 </a>
                             </td>
