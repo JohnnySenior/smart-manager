@@ -36,7 +36,7 @@ namespace SmartManager.Services.Proccessings.Groups
         public async ValueTask<Group> RetrieveGroupByIdAsync(Guid groupid) =>
             await this.groupService.RetrieveGroupByIdAsync(groupid);
 
-        public IQueryable RetrieveAllGroups() =>
+        public IQueryable<Group> RetrieveAllGroups() =>
             this.groupService.RetrieveAllGroups();
 
         public async ValueTask<Group> ModifyGroupAsync(Group group) =>

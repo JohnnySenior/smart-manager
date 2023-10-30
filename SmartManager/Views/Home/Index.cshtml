@@ -2,7 +2,51 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-8">
+            <h1 class="display-4">Smart Manager</h1>
+            <!-- Основное содержание страницы -->
+            <p>Здесь вы можете разместить основное содержание вашей страницы.</p>
+        </div>
+        <div class="col-lg-4">
+            <!-- Документация -->
+            <div class="documentation">
+                <h3>Документация</h3>
+                <p>Здесь находится ваша документация. Вы можете добавить ссылки, описания и примеры.</p>
+                <ul>
+                    <li><a href="#">Ссылка на раздел 1</a></li>
+                    <li><a href="#">Ссылка на раздел 2</a></li>
+                    <li><a href="#">Ссылка на раздел 3</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
 </div>
+
+<style>
+    .documentation {
+        background-color: #f8f9fa;
+        padding: 20px;
+        border: 1px solid #dcdcdc;
+        border-radius: 5px;
+    }
+
+        .documentation h3 {
+            font-size: 1.5rem;
+        }
+
+        .documentation ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .documentation li {
+            margin-bottom: 5px;
+        }
+
+        .documentation a {
+            text-decoration: none;
+            color: #007bff;
+        }
+</style>
