@@ -18,7 +18,7 @@ namespace SmartManager.Services.Foundations.Applicants
         private readonly IStorageBroker storageBroker;
         private readonly ILoggingBroker loggingBroker;
 
-        public ApplicantService(IStorageBroker storageBroker, ILoggingBroker loggingBroker)
+        public ApplicantService(IStorageBroker storageBroker, ILoggingBroker loggingBroker, Brokers.DateTimes.IDateTimeBroker dateTimeBroker)
         {
             this.storageBroker = storageBroker;
             this.loggingBroker = loggingBroker;
