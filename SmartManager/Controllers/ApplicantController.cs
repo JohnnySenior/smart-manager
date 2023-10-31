@@ -65,6 +65,16 @@ namespace SmartManager.Controllers
 
             return View(applicant);
         }
+        // getById
+        [HttpGet]
+        public IActionResult PutApplicantInGroup(Guid applicantId)
+        {
+            IQueryable<Applicant> applicants = this.applicantProcessingService.RetrieveAllApplicants();
+
+            Applicant applicant = applicants.SingleOrDefault(a => a.ApplicantId == applicantId);
+
+            return View(applicant);
+        }
 
         // put
         [HttpPost]
@@ -73,6 +83,14 @@ namespace SmartManager.Controllers
             applicantProcessingService.ModifyApplicantAsync(applicant);
 
             return RedirectToAction("ShowApplicants");
+        }
+        // put
+        [HttpPost]
+        public IActionResult PutApplicantInGroup(Applicant applicant)
+        {
+            applicantProcessingService.ModifyApplicantAsync(applicant);
+
+            return RedirectToAction("ShowApplicantWithGroup");
         }
 
         // getById
@@ -86,6 +104,18 @@ namespace SmartManager.Controllers
             this.applicantProcessingService.RemoveApplicantAsync(applicant.ApplicantId);
 
             return RedirectToAction("ShowApplicants");
+        }
+        // getById
+        [HttpGet]
+        public IActionResult DeleteApplicantInGroup(Guid applicantId)
+        {
+            IQueryable<Applicant> applicants = this.applicantProcessingService.RetrieveAllApplicants();
+
+            Applicant applicant = applicants.SingleOrDefault(a => a.ApplicantId == applicantId);
+
+            this.applicantProcessingService.RemoveApplicantAsync(applicant.ApplicantId);
+
+            return RedirectToAction("ShowApplicantWithGroup");
         }
     }
 }
