@@ -17,7 +17,7 @@ using SmartManager.Services.Proccessings.Spreadsheets;
 
 namespace SmartManager.Services.Orchestrations
 {
-    public class OrchestrationService : IOrchestrationService
+    public partial class OrchestrationService : IOrchestrationService
     {
         private readonly ISpreadsheetsProcessingService spreadsheetProcessingService;
         private readonly IApplicantProcessingService applicantProcessingService;
@@ -36,7 +36,8 @@ namespace SmartManager.Services.Orchestrations
             this.loggingBroker = loggingBroker;
         }
 
-        public async Task ProcessImportRequest(MemoryStream stream)
+        public Task ProcessImportRequest(MemoryStream stream) =>
+        TryCatch(async () =>
         {
             List<ExternalApplicant> validExternalApplicants =
                 this.spreadsheetProcessingService.ReadExternalApplicants(stream);
@@ -53,7 +54,7 @@ namespace SmartManager.Services.Orchestrations
 
                 await applicantProcessingService.AddApplicantAsync(applicant);
             }
-        }
+        });
         private Applicant MapToApplicant(ExternalApplicant externalApplicant, Group ensureGroup)
         {
             return new Applicant

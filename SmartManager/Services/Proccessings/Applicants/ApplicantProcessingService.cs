@@ -2,6 +2,7 @@
 // Copyright (c) Tarteeb LLC
 // Managre quickly and easy
 //===========================
+using SmartManager.Brokers.Loggings;
 using SmartManager.Models.Applicants;
 using SmartManager.Services.Foundations.Applicants;
 using SmartManager.Services.Proccessings.Groups;
@@ -11,18 +12,24 @@ using System.Threading.Tasks;
 
 namespace SmartManager.Services.Proccessings.Applicants
 {
-    public class ApplicantProcessingService : IApplicantProcessingService
+    public partial class ApplicantProcessingService : IApplicantProcessingService
     {
         private readonly IApplicantService applicantService;
         private readonly IGroupProcessingService groupProcessingService;
+        private readonly ILoggingBroker loggingBroker;
 
-        public ApplicantProcessingService(IApplicantService applicantService, IGroupProcessingService groupProcessingService)
+        public ApplicantProcessingService(
+            IApplicantService applicantService, 
+            IGroupProcessingService groupProcessingService, 
+            ILoggingBroker loggingBroker)
         {
             this.applicantService = applicantService;
             this.groupProcessingService = groupProcessingService;
+            this.loggingBroker = loggingBroker;
         }
 
-        public async ValueTask<Applicant> AddApplicantAsync(Applicant applicant)
+        public ValueTask<Applicant> AddApplicantAsync(Applicant applicant) =>
+        TryCatch(async () =>
         {
             applicant.ApplicantId = Guid.NewGuid();
             applicant.CreatedDate = DateTime.Now;
@@ -32,27 +39,28 @@ namespace SmartManager.Services.Proccessings.Applicants
             applicant.GroupId = newGroup.GroupId;
 
             return await this.applicantService.AddApplicantAsync(applicant);
-        }
+        });
 
-        public async ValueTask<Applicant> RetrieveApplicantByIdAsync(Guid applicantid) =>
-            await this.applicantService.RetrieveApplicantByIdAsync(applicantid);
+        public ValueTask<Applicant> RetrieveApplicantByIdAsync(Guid applicantid) =>
+            TryCatch(async () => await this.applicantService.RetrieveApplicantByIdAsync(applicantid));
 
         public IQueryable<Applicant> RetrieveAllApplicants() =>
-            this.applicantService.RetrieveAllApplicants();
+            TryCatch(() => this.applicantService.RetrieveAllApplicants());
 
-        public async ValueTask<Applicant> ModifyApplicantAsync(Applicant applicant)
-        {
-            var newGroup = await this.groupProcessingService.EnsureGroupExistsByName(applicant.GroupName);
+        public ValueTask<Applicant> ModifyApplicantAsync(Applicant applicant) =>
+        TryCatch(async () =>
+            {
+                var newGroup = await this.groupProcessingService.EnsureGroupExistsByName(applicant.GroupName);
 
-            applicant.GroupId = newGroup.GroupId;
+                applicant.GroupId = newGroup.GroupId;
 
-            return await this.applicantService.ModifyApplicantAsync(applicant);
-        }
+                return await this.applicantService.ModifyApplicantAsync(applicant);
+            });
 
-        public async ValueTask<Applicant> ModifyApplicantWithGroupAsync(Applicant applicant) =>
-            await this.applicantService.ModifyApplicantAsync(applicant);
+        public ValueTask<Applicant> ModifyApplicantWithGroupAsync(Applicant applicant) =>
+            TryCatch(async () => await this.applicantService.ModifyApplicantAsync(applicant));
 
-        public async ValueTask<Applicant> RemoveApplicantAsync(Guid applicantid) =>
-            await this.applicantService.RemoveApplicantAsync(applicantid);
+        public ValueTask<Applicant> RemoveApplicantAsync(Guid applicantid) =>
+            TryCatch(async () => await this.applicantService.RemoveApplicantAsync(applicantid));
     }
 }

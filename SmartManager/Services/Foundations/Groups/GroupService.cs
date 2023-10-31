@@ -3,6 +3,7 @@
 // Managre quickly and easy
 //===========================
 
+using SmartManager.Brokers.Loggings;
 using SmartManager.Brokers.Storages;
 using SmartManager.Models.Groups;
 using System;
@@ -11,32 +12,61 @@ using System.Threading.Tasks;
 
 namespace SmartManager.Services.Foundations.Groups
 {
-    public class GroupService : IGroupService
+    public partial class GroupService : IGroupService
     {
         private readonly IStorageBroker storageBroker;
-
-        public GroupService(IStorageBroker storageBroker)
+        private readonly ILoggingBroker loggingBroker;
+        public GroupService(IStorageBroker storageBroker, ILoggingBroker loggingBroker)
         {
             this.storageBroker = storageBroker;
+            this.loggingBroker = loggingBroker;
         }
 
-        public async ValueTask<Group> AddGroupAsync(Group group) =>
-            await this.storageBroker.InsertGroupAsync(group);
+        public ValueTask<Group> AddGroupAsync(Group group) =>
+        TryCatch(async () =>
+        {
+            ValidateGroupOnAdd(group);
 
-        public async ValueTask<Group> RetrieveGroupByIdAsync(Guid groupid) =>
-            await this.storageBroker.SelectGroupByIdAsync(groupid);
+            return await this.storageBroker.InsertGroupAsync(group);
+        });
 
+        public ValueTask<Group> RetrieveGroupByIdAsync(Guid groupId) =>
+        TryCatch(async () =>
+        {
+            ValidateGroupId(groupId);
+
+            var maybeGroup =
+              await this.storageBroker.SelectGroupByIdAsync(groupId);
+
+            ValidateStorageGroup(maybeGroup, groupId);
+
+            return await this.storageBroker.SelectGroupByIdAsync(groupId);
+        });
         public IQueryable<Group> RetrieveAllGroups() =>
-            this.storageBroker.SelectAllGroups();
+            TryCatch(() => this.storageBroker.SelectAllGroups());
 
-        public async ValueTask<Group> ModifyGroupAsync(Group group) =>
-            await this.storageBroker.UpdateAppolicantAsync(group);
+        public ValueTask<Group> ModifyGroupAsync(Group group) =>
+        TryCatch(async () =>
+        {
+            ValidateGroupOnModify(group);
+
+            var maybeGroup =
+                await this.storageBroker.SelectGroupByIdAsync(group.GroupId);
+
+            ValidateAgainstStorageGroupOnModify(inputAccount: group, storageGroup: maybeGroup);
+
+            return await this.storageBroker.UpdateAppolicantAsync(group);
+        });
 
         public async ValueTask<Group> RemoveGroupAsync(Guid groupid)
         {
-            Group group = await this.storageBroker.SelectGroupByIdAsync(groupid);
+            ValidateGroupId(groupid);
 
-            return await this.storageBroker.DeleteGroupAsync(group);
+            var maybeGroup = await this.storageBroker.SelectGroupByIdAsync(groupid);
+
+            ValidateStorageGroup(maybeGroup, groupid);
+
+            return await this.storageBroker.DeleteGroupAsync(maybeGroup);
         }
     }
 }
