@@ -70,12 +70,12 @@
                             <td>@item.GroupName</td>
                             <td>@item.CreatedDate</td>
                             <td>
-                                <a asp-route-applicantId="@item.ApplicantId" asp-action="PutApplicant" class="btn btn-primary btn-md-custom">
+                                <a asp-route-applicantId="@item.ApplicantId" asp-action="PutApplicantInGroup" class="btn btn-primary btn-md-custom">
                                     <i class="bi bi-pencil"></i>
                                 </a>
                             </td>
                             <td>
-                                <a asp-route-applicantId="@item.ApplicantId" asp-action="DeleteApplicant" class="btn btn-danger btn-md-custom" onclick="return DeleteInput()">
+                                <a asp-route-applicantId="@item.ApplicantId" asp-action="DeleteApplicantInGroup" class="btn btn-danger btn-md-custom" onclick="return DeleteInput()">
                                     <i class="bi bi-x-lg"></i>
                                 </a>
                             </td>
