@@ -4,13 +4,13 @@
 //===========================
 
 using EFxceptions.Models.Exceptions;
-using SmartManager.Models.Applicants.Exceptions;
 using SmartManager.Models.Applicants;
-using System.Threading.Tasks;
+using SmartManager.Models.Applicants.Exceptions;
 using System;
-using Xeptions;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Threading.Tasks;
+using Xeptions;
 
 namespace SmartManager.Services.Foundations.Applicants
 {
@@ -67,7 +67,7 @@ namespace SmartManager.Services.Foundations.Applicants
 
                 throw CreateAndLogCriticalDependencyException(failedApplicantStorageException);
             }
-            catch(Exception exception)
+            catch (Exception exception)
             {
                 var failedApplicantServiceException =
                     new FailedApplicantServiceException(exception);
@@ -76,7 +76,7 @@ namespace SmartManager.Services.Foundations.Applicants
             }
         }
 
-            private ApplicantDependencyValidationException CreateAndALogDependencyValidationException(Xeption exception)
+        private ApplicantDependencyValidationException CreateAndALogDependencyValidationException(Xeption exception)
         {
             var applicantDependencyValidationException =
                 new ApplicantDependencyValidationException(exception);

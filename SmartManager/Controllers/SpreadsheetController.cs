@@ -30,7 +30,7 @@ namespace SmartManager.Controllers
         {
             IFormFile importFile = Request.Form.Files[0];
 
-            using(MemoryStream stream = new MemoryStream())
+            using (MemoryStream stream = new MemoryStream())
             {
                 importFile.CopyTo(stream);
                 stream.Position = 0;

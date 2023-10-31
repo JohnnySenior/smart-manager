@@ -3,11 +3,10 @@
 // Managre quickly and easy
 //===========================
 
-using SmartManager.Models.Applicants;
+using SmartManager.Models.Groups;
+using System;
 using System.Linq;
 using System.Threading.Tasks;
-using System;
-using SmartManager.Models.Groups;
 
 namespace SmartManager.Services.Foundations.Groups
 {

@@ -3,11 +3,11 @@
 // Managre quickly and easy
 //===========================
 
+using Bytescout.Spreadsheet;
+using SmartManager.Models.ExternalApplicants;
 using System;
 using System.Collections.Generic;
 using System.IO;
-using Bytescout.Spreadsheet;
-using SmartManager.Models.ExternalApplicants;
 
 namespace SmartManager.Brokers.Spreadsheets
 {

@@ -1,5 +1,3 @@
-using System;
-
 namespace SmartManager.Models
 {
     public class ErrorViewModel

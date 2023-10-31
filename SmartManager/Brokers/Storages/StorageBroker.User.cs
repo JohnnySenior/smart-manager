@@ -25,7 +25,7 @@ namespace SmartManager.Brokers.Storages
             await SelectAsync<User>(userId);
 
         public async ValueTask<User> SelectUserByEmailAndPasswordAsync(string email, string password) =>
-            await this.Users.FirstOrDefaultAsync(user => user.Email ==  email && user.Password == password);
+            await this.Users.FirstOrDefaultAsync(user => user.Email == email && user.Password == password);
 
         public async ValueTask<User> UpdateAppolicantAsync(User user) =>
             await UpdateAsync(user);

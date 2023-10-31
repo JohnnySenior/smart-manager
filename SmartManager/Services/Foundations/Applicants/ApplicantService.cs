@@ -3,7 +3,6 @@
 // Managre quickly and easy
 //===========================
 
-using Microsoft.Identity.Client;
 using SmartManager.Brokers.Loggings;
 using SmartManager.Brokers.Storages;
 using SmartManager.Models.Applicants;

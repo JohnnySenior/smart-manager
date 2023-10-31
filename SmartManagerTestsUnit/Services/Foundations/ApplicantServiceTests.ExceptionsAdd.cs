@@ -3,14 +3,14 @@
 // Managre quickly and easy
 //===========================
 
-using System;
-using System.Data.SqlClient;
-using System.Threading.Tasks;
 using EFxceptions.Models.Exceptions;
 using FluentAssertions;
 using Moq;
 using SmartManager.Models.Applicants;
 using SmartManager.Models.Applicants.Exceptions;
+using System;
+using System.Data.SqlClient;
+using System.Threading.Tasks;
 using Xunit;
 namespace SmartManagerTestsUnit.Services.Foundations
 {

@@ -3,14 +3,14 @@
 // Managre quickly and easy
 //===========================
 
-using SmartManager.Models.Applicants.Exceptions;
-using SmartManager.Models.Applicants;
-using System.Threading.Tasks;
-using Xeptions;
 using EFxceptions.Models.Exceptions;
-using System.Linq;
+using SmartManager.Models.Applicants;
+using SmartManager.Models.Applicants.Exceptions;
 using System;
 using System.Data.SqlClient;
+using System.Linq;
+using System.Threading.Tasks;
+using Xeptions;
 
 namespace SmartManager.Services.Proccessings.Applicants
 {

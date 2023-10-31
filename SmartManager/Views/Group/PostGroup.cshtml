@@ -14,7 +14,7 @@
         </div>
         <div class="mb-3">
             <label asp-for="GroupName"></label>
-            <input asp-for="GroupName" class="form-control" />
+            <input asp-for="GroupName" class="form-control" required /> <!-- Клиентская валидация -->
             <span asp-validation-for="GroupName" class="text-danger"></span>
         </div>
         <button type="submit" class="btn btn-primary" style="width:150px">Add</button>
@@ -23,4 +23,3 @@
         </a>
     </div>
 </form>
-
