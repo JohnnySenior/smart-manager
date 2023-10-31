@@ -4,6 +4,11 @@
     <!-- Add your head content here -->
 </head>
 <body>
+    <!-- Back arrow link -->
+    <a href="javascript:history.back()" class="btn btn-secondary">
+        <i class="bi bi-arrow-left"></i> Back
+    </a>
+
     @using SmartManager.Models.Applicants;
     @model IQueryable<Applicant>
 
@@ -12,8 +17,8 @@
     }
     <style>
         .btn-md-custom {
-            padding: 0.3rem 0.75rem; 
-            font-size: 1rem; 
+            padding: 0.3rem 0.75rem;
+            font-size: 1rem;
         }
     </style>
     <div class="container p-3">
@@ -36,7 +41,7 @@
         </div>
         <br />
 
-        <div class="row">
+        <div class "row">
             <div class="col-12">
                 <p>Total Applicants: @Model.Count()</p>
             </div>
