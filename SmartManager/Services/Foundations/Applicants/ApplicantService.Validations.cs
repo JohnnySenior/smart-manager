@@ -69,12 +69,6 @@ namespace SmartManager.Services.Foundations.Applicants
             Message = "Text is required"
         };
 
-        private static dynamic IsInvalid(DateTimeOffset date) => new
-        {
-            Condition = date == default,
-            Message = "Date is required"
-        };
-
         private static void ValidateApplicantNotNull(Applicant applicant)
         {
             if (applicant == null)
