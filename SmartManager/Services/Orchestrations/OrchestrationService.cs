@@ -3,10 +3,6 @@
 // Powering True Leadership
 //===========================
 
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Threading.Tasks;
 using SmartManager.Brokers.Loggings;
 using SmartManager.Models.Applicants;
 using SmartManager.Models.ExternalApplicants;
@@ -14,6 +10,10 @@ using SmartManager.Models.Groups;
 using SmartManager.Services.Proccessings.Applicants;
 using SmartManager.Services.Proccessings.Groups;
 using SmartManager.Services.Proccessings.Spreadsheets;
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Threading.Tasks;
 
 namespace SmartManager.Services.Orchestrations
 {

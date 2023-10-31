@@ -3,8 +3,8 @@
 // Managre quickly and easy
 //===========================
 
-using SmartManager.Models.Groups.Exceptions;
 using SmartManager.Models.Groups;
+using SmartManager.Models.Groups.Exceptions;
 using System;
 
 namespace SmartManager.Services.Foundations.Groups

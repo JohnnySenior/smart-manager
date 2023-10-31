@@ -3,8 +3,8 @@
 // Managre quickly and easy
 //===========================
 
-using SmartManager.Models.Applicants.Exceptions;
 using SmartManager.Models.Applicants;
+using SmartManager.Models.Applicants.Exceptions;
 using System;
 
 namespace SmartManager.Services.Foundations.Applicants

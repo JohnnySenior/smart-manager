@@ -19,8 +19,8 @@ namespace SmartManager.Services.Proccessings.Applicants
         private readonly ILoggingBroker loggingBroker;
 
         public ApplicantProcessingService(
-            IApplicantService applicantService, 
-            IGroupProcessingService groupProcessingService, 
+            IApplicantService applicantService,
+            IGroupProcessingService groupProcessingService,
             ILoggingBroker loggingBroker)
         {
             this.applicantService = applicantService;

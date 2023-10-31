@@ -4,11 +4,10 @@
 //===========================
 
 using Microsoft.EntityFrameworkCore;
-using SmartManager.Models.Applicants;
 using SmartManager.Models.Groups;
+using System;
 using System.Linq;
 using System.Threading.Tasks;
-using System;
 
 namespace SmartManager.Brokers.Storages
 {

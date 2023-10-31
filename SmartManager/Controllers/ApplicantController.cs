@@ -4,7 +4,6 @@ using SmartManager.Services.Proccessings.Applicants;
 using SmartManager.Services.Proccessings.Groups;
 using System;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace SmartManager.Controllers
 {
@@ -14,7 +13,7 @@ namespace SmartManager.Controllers
         private readonly IGroupProcessingService groupProcessingService;
 
         public ApplicantController(
-            IApplicantProcessingService applicantProcessingService, 
+            IApplicantProcessingService applicantProcessingService,
             IGroupProcessingService groupProcessingService)
         {
             this.applicantProcessingService = applicantProcessingService;
@@ -30,7 +29,7 @@ namespace SmartManager.Controllers
 
         public IActionResult ShowApplicantWithGroup(Guid groupId)
         {
-            IQueryable<Applicant> applicants = 
+            IQueryable<Applicant> applicants =
                 this.applicantProcessingService.RetrieveAllApplicants().Where(a => a.GroupId == groupId);
 
             return View(applicants);

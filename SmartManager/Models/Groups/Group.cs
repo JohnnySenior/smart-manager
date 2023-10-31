@@ -6,7 +6,6 @@
 using SmartManager.Models.Applicants;
 using System;
 using System.Collections.Generic;
-using System.Text.Json.Serialization;
 
 namespace SmartManager.Models.Groups
 {

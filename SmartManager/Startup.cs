@@ -2,16 +2,12 @@
 // Copyright (c) Tarteeb LLC
 // Managre quickly and easy
 //===========================
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using SmartManager.Brokers.DateTimes;
 using SmartManager.Brokers.Loggings;
 using SmartManager.Brokers.Spreadsheets;
 using SmartManager.Brokers.Storages;
@@ -41,6 +37,7 @@ namespace SmartManager
         {
             services.AddControllersWithViews();
             services.AddDbContext<IStorageBroker, StorageBroker>();
+            services.AddTransient<IDateTimeBroker, DateTimeBroker>();
             services.AddTransient<ILoggingBroker, LoggingBroker>();
             services.AddTransient<IOrchestrationService, OrchestrationService>();
             services.AddTransient<IApplicantProcessingService, ApplicantProcessingService>();

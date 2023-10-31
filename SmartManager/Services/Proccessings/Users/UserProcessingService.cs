@@ -3,13 +3,11 @@
 // Managre quickly and easy
 //===========================
 
-using SmartManager.Models.Applicants;
-using SmartManager.Services.Foundations.Applicants;
+using SmartManager.Models.Users;
+using SmartManager.Services.Foundations.Users;
+using System;
 using System.Linq;
 using System.Threading.Tasks;
-using System;
-using SmartManager.Services.Foundations.Users;
-using SmartManager.Models.Users;
 
 namespace SmartManager.Services.Proccessings.Users
 {
